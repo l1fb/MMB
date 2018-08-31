@@ -1,7 +1,7 @@
 {
-  "name": "dchungwebsite",
+  "name": "David Yonwook Chung",
   "version": "1.0.0",
-  "description": "doing website stuff",
+  "description": "MMB Coding Challenge | David Chung",
   "main": "5000",
   "scripts": {
     "build:dev": "webpack -w --mode=development",
