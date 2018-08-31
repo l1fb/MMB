@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-import RequestFeature from "./RequestFeature.jsx";
+import HttpRequestFeature from "./HttpRequestFeature.jsx";
 import ReverseFeature from "./ReverseStringFeature.jsx"
 
 class Features extends Component {
     render() {
         return (
             <div className="features-container">
-                <RequestFeature/>
+                <HttpRequestFeature/>
                 <ReverseFeature/>
             </div>
         )
