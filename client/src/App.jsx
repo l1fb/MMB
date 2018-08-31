@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Features from "./components/Features.jsx";
+
 import "./stylesheets/main.scss";
 
 class App extends Component {
@@ -9,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        Helo
+        <Features/>
       </div >
     );
   }
