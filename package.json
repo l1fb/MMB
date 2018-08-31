@@ -4,6 +4,8 @@
   "description": "MyMedicareBot Coding Challenge",
   "main": "index.js",
   "scripts": {
+    "build:dev": "webpack -w --config ./client/webpack.prod.config.js --mode=development",
+    "client:dev": "nodemon ./client/index.js",
     "test": "test"
   },
   "repository": {
