@@ -1,0 +1,11 @@
+{
+  "name": "mmb_coding_challenge_server_side",
+  "version": "1.0.0",
+  "description": "MMB Code Challenge by David Chung",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Yonwook Chung",
+  "license": "ISC"
+}
