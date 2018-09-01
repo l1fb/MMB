@@ -1,7 +1,13 @@
 const reverseCommands = {
     reverseStr: ((req, res) => {
-        console.log('what is in here?', req.body)
-        res.send(202, req.body)
+        const originStr = req.body.str;
+        let reversedStr = "";
+
+        //O(n) time complexity
+        for (let i = originStr.length - 1; i >= 0; i--) {
+            reversedStr += originStr[i];
+        }
+        res.send(200, reversedStr);
     })
 }
 
