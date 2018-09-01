@@ -4,7 +4,7 @@
   "description": "MMB Code Challenge by David Chung",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon index.js" 
+    "start:dev": "nodemon index.js"
   },
   "author": "David Yonwook Chung",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "nodemon": "^1.18.4"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.3"
   }
 }
