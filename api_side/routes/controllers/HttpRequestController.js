@@ -2,11 +2,16 @@ const axios = require("axios");
 
 const HttpRequestController = {
     getURL: ((req, res) => {
+        //mvp+
+        //dynamic query parameter search
+        
+        //mvp - get request to the given url
         let url = req.query.url;
 
         axios.get(url)
             .then((result) => {
-                res.status(200).send(result.data);
+                let load = JSON.stringify(result.data)
+                res.status(200).send(load);
             })
             .catch((err) => {
                 res.status(404).send(err);
@@ -14,9 +19,9 @@ const HttpRequestController = {
     }),
     postURL: ((req, res) => {
         let reqBodyUrl = req.body.url;
-        let configObj = {};
         //mvp+
         //dynamic search parameter functionality
+        let configObj = {};
         // let parsedBody = JSON.parse(req.body);
         //parse through the req.body
         // for(let key in parsedBody) {
@@ -27,10 +32,12 @@ const HttpRequestController = {
         //         configObj[key] = parsedBody[key];
         //     };
         // };
+
+        //mvp - posts request send back to the user
         axios.post(reqBodyUrl, configObj)
             .then((result) => {
-                console.log(result.data)
-                res.status(201).send(result.data);
+                let load = JSON.stringify(result.data);
+                res.status(201).send(load);
             })
             .catch((err) => {
                 console.log('err', err)
