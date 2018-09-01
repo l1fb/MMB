@@ -1,10 +1,9 @@
 const axios = require("axios");
-const urlHelper = require('url');
-
 
 const HttpRequestController = {
     getURL: ((req, res) => {
-        let url = req.query;
+        let url = req.query.url;
+
         axios.get(url)
             .then((result) => {
                 res.status(200).send(result.data);
