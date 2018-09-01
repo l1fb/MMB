@@ -7,7 +7,7 @@ const reverseCommands = {
         for (let i = originStr.length - 1; i >= 0; i--) {
             reversedStr += originStr[i];
         }
-        res.send(200, reversedStr);
+        res.send(201, reversedStr);
     })
 }
 

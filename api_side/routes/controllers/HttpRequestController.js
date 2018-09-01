@@ -4,7 +4,7 @@ const urlHelper = require('url');
 
 const HttpRequestController = {
     getURL: ((req, res) => {
-        let url = urlHelper.parse(req.body.url);
+        let url = req.query;
         axios.get(url)
             .then((result) => {
                 res.status(200).send(result.data);
@@ -14,11 +14,24 @@ const HttpRequestController = {
             })
     }),
     postURL: ((req, res) => {
-        
         let reqBodyUrl = req.body.url;
-        axios.post(reqBodyUrl)
+        let configObj = {};
+        //mvp+
+        //dynamic search parameter functionality
+        // let parsedBody = JSON.parse(req.body);
+        //parse through the req.body
+        // for(let key in parsedBody) {
+        //     //extract the key that is not url
+        //     if(key !== 'url') {
+        //         //set it as a new parameter
+        //         //[key] = key.value
+        //         configObj[key] = parsedBody[key];
+        //     };
+        // };
+        axios.post(reqBodyUrl, configObj)
             .then((result) => {
-                res.status(200).send(result.data);
+                console.log(result.data)
+                res.status(201).send(result.data);
             })
             .catch((err) => {
                 console.log('err', err)
