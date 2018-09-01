@@ -1,9 +1,10 @@
 const axios = require("axios");
 const urlHelper = require('url');
 
+
 const HttpRequestController = {
     getURL: ((req, res) => {
-        const url = urlHelper.parse(req.body.url);
+        let url = urlHelper.parse(req.body.url);
         axios.get(url)
             .then((result) => {
                 res.status(200).send(result.data);
@@ -14,11 +15,13 @@ const HttpRequestController = {
     }),
     postURL: ((req, res) => {
         
-        axios.post('https://reqres.in/api/users')
+        let reqBodyUrl = req.body.url;
+        axios.post(reqBodyUrl)
             .then((result) => {
-                res.status(200).json(result.data);
+                res.status(200).send(result.data);
             })
             .catch((err) => {
+                console.log('err', err)
                 res.status(404).send(err);
         })
     })
