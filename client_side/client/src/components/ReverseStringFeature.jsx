@@ -7,32 +7,35 @@ import SubmitBttn from "./global/buttons/SubmitBttn.jsx";
 class ReverseFeature extends Component {
     constructor(props) {
         super(props)
-        
+        this.state = {
+            str: '',
+            reversedstr: ''
+        }
     }
-
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         });
     }
-
     verifyEnter = (e) => {
         if (e.key === "Enter") {
-            //makes axios call
+            //makes axios call - do i want to do enter?
         }
     }
-
     reverseRequest = () => {
-        axios.post('/api/reverse', {
+        axios.post('http://localhost:3000/api/reverse', {
             data: this.state.str
         })
-        .then((data) => {
+        .then(data => {
+            console.log('data thats coming back', data)
             this.setState({
-                reverseStr: data
+                reversedStr: data.data
             })
         })
+        .catch(err => {
+            throw err;
+        })
     }
-
     render() {
         return(
             <div className="request-feature-container">
@@ -41,8 +44,10 @@ class ReverseFeature extends Component {
                     onChange={this.changeHandler}
                     onKeyPress={this.verifyEnter}
                 />
+                <button onClick={this.reverseRequest}>Submit</button>
+                {/* do some conditional rendering for the output field */}
                 <h5> 
-                    {this.reverseStr}
+                    {this.state.reversedStr}
                 </h5>
             </div>
         )
