@@ -1,0 +1,19 @@
+{
+  "name": "mmb_master_package",
+  "version": "1.0.0",
+  "description": "package to easy-install and start both api and client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/l1fb/MMB.git"
+  },
+  "author": "David Yonwook Chung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/l1fb/MMB/issues"
+  },
+  "homepage": "https://github.com/l1fb/MMB#readme"
+}

@@ -11,7 +11,10 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Features/>
+        <div className="feature-container">
+          <h2>MyMedicalBot - Coding Challenge</h2>
+          <Features className="feature-item"/>
+        </div>
       </div >
     );
   }
