@@ -6,8 +6,8 @@ const HttpRequestController = {
         //dynamic query parameter search
         
         //mvp - get request to the given url
+        console.log('req.body', req.body, 'req.query', req.query)
         let url = req.query.url;
-
         axios.get(url)
             .then((result) => {
                 let load = JSON.stringify(result.data)
