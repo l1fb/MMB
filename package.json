@@ -4,7 +4,10 @@
   "description": "package to easy-install and start both api and client",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup:client": "cd client_side && npm install",
+    "setup:api": "cd api_side && npm install",
+    "start:client": "cd client_side && npm start",
+    "start:api": "cd api_side && npm start"
   },
   "repository": {
     "type": "git",
