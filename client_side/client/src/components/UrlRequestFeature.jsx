@@ -37,20 +37,23 @@ class UrlRequestFeature extends Component {
     urlRequest = () => {
         //err handle - if no url
         let { value } = this.state;
-        axios('http://localhost:3000/api/url', {
-            method: this.state.value,
-            url: this.state.url
-        })
-        .then(data => {
-            let result = JSON.stringify(data.data);
-            this.setState({
-                urlData: result
+        if ( value === "POST" ) {
+            axios.post('http://localhost:3000/api/url', {
+                data: {
+                    url: this.state.url
+                }
             })
-        })
-        .catch(err => {
-            // err display for users
-            throw err;
-        })
+            .then(data => {
+                let result = JSON.stringify(data.data);
+                this.setState({
+                    urlData: result
+                })
+            })
+            .catch(err => {
+                // err display for users
+                throw err;
+            })
+        }
     }
 
     render() {

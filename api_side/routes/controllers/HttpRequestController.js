@@ -18,7 +18,8 @@ const HttpRequestController = {
             })
     }),
     postURL: ((req, res) => {
-        let reqBodyUrl = req.body.url;
+        let reqBodyUrl = req.body.data.url;
+        // console.log(req.body)
         //mvp+
         //dynamic search parameter functionality
         let configObj = {};
@@ -32,7 +33,6 @@ const HttpRequestController = {
         //         configObj[key] = parsedBody[key];
         //     };
         // };
-        console.log("test", reqBodyUrl, typeof reqBodyUrl)
         //mvp - posts request send back to the user
         axios.post(reqBodyUrl, configObj)
             .then((result) => {
