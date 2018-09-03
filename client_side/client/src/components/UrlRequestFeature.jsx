@@ -10,7 +10,7 @@ class UrlRequestFeature extends Component {
         this.state = {
             url: '',
             urlData: '',
-            value: 'not selected',
+            value: 'GET',
             methodOptions: [
                 {
                     name: 'GET',
@@ -23,7 +23,7 @@ class UrlRequestFeature extends Component {
             ]
         }
     }
-    
+
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -35,8 +35,21 @@ class UrlRequestFeature extends Component {
     }
 
     urlRequest = () => {
-        axios({
-            method: this.state.currMethod
+        //err handle - if no url
+        let { value } = this.state;
+        axios('http://localhost:3000/api/url', {
+            method: this.state.value,
+            url: this.state.url
+        })
+        .then(data => {
+            let result = JSON.stringify(data.data);
+            this.setState({
+                urlData: result
+            })
+        })
+        .catch(err => {
+            // err display for users
+            throw err;
         })
     }
 
@@ -49,7 +62,6 @@ class UrlRequestFeature extends Component {
                     name="url"
                     onChange={this.changeHandler}
                 />
-                <button onClick={this.urlRequest}>Submit</button>
                 <select onChange={this.selectChangeHandler} value={value}>
                     {
                     methodOptions.map(optionEntry => (
@@ -59,9 +71,11 @@ class UrlRequestFeature extends Component {
                     ))
                     }
                 </select>
+                <button onClick={this.urlRequest}>Submit</button>
                 <h5>
                     {/* do i want to map through? */}
                     
+                    {typeof url}
                     {urlData}
                     {value}
                 </h5>

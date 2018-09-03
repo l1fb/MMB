@@ -32,7 +32,7 @@ const HttpRequestController = {
         //         configObj[key] = parsedBody[key];
         //     };
         // };
-
+        console.log("test", reqBodyUrl, typeof reqBodyUrl)
         //mvp - posts request send back to the user
         axios.post(reqBodyUrl, configObj)
             .then((result) => {

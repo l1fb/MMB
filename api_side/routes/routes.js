@@ -7,7 +7,7 @@ const ReverseController = require('./controllers/ReverseController.js');
 router.route('/reverse')
     .post(ReverseController.reverseStr);
 
-router.route('/http')
+router.route('/url')
     .get(HttpRequestController.getURL)
     .post(HttpRequestController.postURL)
 
