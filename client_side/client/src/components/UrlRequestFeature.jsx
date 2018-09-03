@@ -9,21 +9,40 @@ class UrlRequestFeature extends Component {
         super(props)
         this.state = {
             url: '',
-            currMethod: 'GET',
-            urlData: ''
+            urlData: '',
+            value: 'not selected',
+            methodOptions: [
+                {
+                    name: 'GET',
+                    value: 'GET'
+                },
+                {
+                    name: 'POST',
+                    value: 'POST'
+                }
+            ]
         }
     }
-    changeHandler = () => {
+    
+    changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         });
     }
+
+    selectChangeHandler = (e) => {
+        this.setState({value: e.target.value})
+    }
+
     urlRequest = () => {
         axios({
             method: this.state.currMethod
         })
     }
+
     render() {
+        const { url, urlData, value, methodOptions } = this.state;
+
         return(
             <div className="url-request-feature-container">
                 <input
@@ -31,12 +50,20 @@ class UrlRequestFeature extends Component {
                     onChange={this.changeHandler}
                 />
                 <button onClick={this.urlRequest}>Submit</button>
-                <div>
-                    <button>Select Method</button>
-                </div>
+                <select onChange={this.selectChangeHandler} value={value}>
+                    {
+                    methodOptions.map(optionEntry => (
+                        <option key={optionEntry.value} value={optionEntry.value}>
+                            {optionEntry.name}
+                        </option>
+                    ))
+                    }
+                </select>
                 <h5>
                     {/* do i want to map through? */}
-                    {this.state.urlData}
+                    
+                    {urlData}
+                    {value}
                 </h5>
             </div>
         )
