@@ -38,19 +38,21 @@ class ReverseFeature extends Component {
     }
     render() {
         return(
-            <div className="request-feature-container">
-                <div>Reverse the String</div>
-                <input
-                    name="str"
-                    onChange={this.changeHandler}
-                    onKeyPress={this.verifyEnter}
-                />
-                <button onClick={this.reverseRequest}>Submit</button>
-                {/* do some conditional rendering for the output field */}
-                <h5> 
-                    Reversed String:
-                    {this.state.reversedStr}
-                </h5>
+            <div className="feature-container">
+                <div className="request-feature-container">
+                    <div>Reverse the String</div>
+                    <input
+                        name="str"
+                        onChange={this.changeHandler}
+                        onKeyPress={this.verifyEnter}
+                    />
+                    <button onClick={this.reverseRequest}>Submit</button>
+                    {/* do some conditional rendering for the output field */}
+                    <h5> 
+                        Reversed String:
+                        {this.state.reversedStr}
+                    </h5>
+                </div>
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Features from "./components/Features.jsx";
+import Nav from "./components/Nav.jsx";
 
 import "./stylesheets/main.scss";
 
@@ -11,9 +12,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
+        <Nav/>
         <div className="feature-container">
-          <h2>MyMedicalBot - Coding Challenge</h2>
-          <Features className="feature-item"/>
+          <Features/>
         </div>
       </div >
     );

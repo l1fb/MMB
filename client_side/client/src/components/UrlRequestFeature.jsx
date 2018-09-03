@@ -73,27 +73,29 @@ class UrlRequestFeature extends Component {
         const { url, urlData, value, methodOptions } = this.state;
 
         return(
-            <div className="url-request-feature-container">
-                <div>URL GET/POST</div>
-                <input
-                    name="url"
-                    onChange={this.changeHandler}
-                />
-                <select onChange={this.selectChangeHandler} value={value}>
-                    {methodOptions.map(optionEntry => (
-                        <option key={optionEntry.value} value={optionEntry.value}>
-                            {optionEntry.name}
-                        </option>
-                    ))}
-                </select>
-                <button onClick={this.urlRequest}>Submit</button>
-                <h5>
-                    {/* do i want to map through? */}
-                    URL Data:
-                    {typeof url}
-                    {urlData}
-                    {value}
-                </h5>
+            <div className="feature-container">
+                <div className="url-request-feature-container">
+                    <div>URL GET/POST</div>
+                    <input
+                        name="url"
+                        onChange={this.changeHandler}
+                    />
+                    <select onChange={this.selectChangeHandler} value={value}>
+                        {methodOptions.map(optionEntry => (
+                            <option key={optionEntry.value} value={optionEntry.value}>
+                                {optionEntry.name}
+                            </option>
+                        ))}
+                    </select>
+                    <button onClick={this.urlRequest}>Submit</button>
+                    <h5>
+                        {/* do i want to map through? */}
+                        URL Data:
+                        {typeof url}
+                        {urlData}
+                        {value}
+                    </h5>
+                </div>
             </div>
         )
     }
