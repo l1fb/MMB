@@ -74,27 +74,23 @@ class UrlRequestFeature extends Component {
 
         return(
             <div className="feature-container">
-                <div className="url-request-feature-container">
-                    <div className="feature-name">URL GET/POST</div>
-                    <input
-                        name="url"
-                        onChange={this.changeHandler}
-                    />
-                    <select onChange={this.selectChangeHandler} value={value}>
-                        {methodOptions.map(optionEntry => (
-                            <option key={optionEntry.value} value={optionEntry.value}>
-                                {optionEntry.name}
-                            </option>
-                        ))}
-                    </select>
-                    <button onClick={this.urlRequest}>Submit</button>
-                    <h5>
-                        {/* do i want to map through? */}
-                        URL Data:
-                        {typeof url}
-                        {urlData}
-                        {value}
-                    </h5>
+                <div className="url-request-feature-container feature-items">
+                    <div className="feature-name">Type the url:</div>
+                        <input
+                            name="url"
+                            onChange={this.changeHandler}
+                        />
+                        <div>Select the request type: </div>
+                    <div>
+                        <select onChange={this.selectChangeHandler} value={value}>
+                            {methodOptions.map(optionEntry => (
+                                <option key={optionEntry.value} value={optionEntry.value}>
+                                    {optionEntry.name}
+                                </option>
+                            ))}
+                        </select>
+                        <button onClick={this.urlRequest}>Submit</button>
+                    </div>
                 </div>
             </div>
         )
