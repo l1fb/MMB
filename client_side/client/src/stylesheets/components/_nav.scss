@@ -2,13 +2,14 @@
 
 .nav-container {
     background:#FFFFFF;
-    
+
     @include boxshadow_bottom;
 
     height: 15vh;
     display: flex;
     align-items: center;
     justify-content: left;
+    
     img {
         background: #FFFFFF;
         width: 35%;

@@ -6,12 +6,17 @@
     
     height: 42vh;
 
-    background: white;
+    background: linear-gradient(to bottom, coral 22%, white 25%);
     border-radius: 10px;
     padding: 20px;
     margin: 25px 20px;
 
     @include boxshadow;
+
+    .feature-name {
+        height: 20%;
+        color: white;
+    }
 
 }
 

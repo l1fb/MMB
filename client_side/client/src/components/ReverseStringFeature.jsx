@@ -39,8 +39,8 @@ class ReverseFeature extends Component {
     render() {
         return(
             <div className="feature-container">
-                <div className="request-feature-container">
-                    <div>Reverse the String</div>
+                <div className="reverse-feature-container">
+                    <div className="feature-name">Reverse the String</div>
                     <input
                         name="str"
                         onChange={this.changeHandler}

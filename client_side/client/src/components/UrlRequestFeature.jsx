@@ -75,7 +75,7 @@ class UrlRequestFeature extends Component {
         return(
             <div className="feature-container">
                 <div className="url-request-feature-container">
-                    <div>URL GET/POST</div>
+                    <div className="feature-name">URL GET/POST</div>
                     <input
                         name="url"
                         onChange={this.changeHandler}
