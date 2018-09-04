@@ -1,6 +1,10 @@
+@import "../abstracts/_mixin.scss";
+
 .nav-container {
     background:#FFFFFF;
-    box-shadow: 0 8px 6px -6px #888888;
+    
+    @include boxshadow_bottom;
+
     height: 15vh;
     display: flex;
     align-items: center;
