@@ -10,8 +10,12 @@ class UrlRequestFeature extends Component {
         this.state = {
             url: '',
             urlData: '',
-            value: 'GET',
+            value: 'Select:',
             methodOptions: [
+                {
+                    name: 'Select:',
+                    value: 'Select:'
+                },
                 {
                     name: 'GET',
                     value: 'GET'
@@ -80,15 +84,19 @@ class UrlRequestFeature extends Component {
                             name="url"
                             onChange={this.changeHandler}
                         />
-                        <div>Select the request type: </div>
-                    <div>
-                        <select onChange={this.selectChangeHandler} value={value}>
-                            {methodOptions.map(optionEntry => (
-                                <option key={optionEntry.value} value={optionEntry.value}>
-                                    {optionEntry.name}
-                                </option>
-                            ))}
-                        </select>
+
+                    <div>Select the request type: </div>
+                    
+                    <div className="submit-method-container">
+                        <div className="select-container">
+                            <select onChange={this.selectChangeHandler} value={value}>
+                                {methodOptions.map(optionEntry => (
+                                    <option key={optionEntry.value} value={optionEntry.value}>
+                                        {optionEntry.name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                         <button onClick={this.urlRequest}>Submit</button>
                     </div>
                 </div>

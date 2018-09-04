@@ -12,8 +12,13 @@
     border-radius: 10px;
     padding: 20px;
     margin: 25px 20px;
-
     @include boxshadow;
+    
+    .submit-method-container {
+        display: flex;
+        flex-direction: row;
+    }
+
     .feature-items {
         height:100%;
         display: flex;
@@ -31,8 +36,5 @@
         height: 20%;
         color: white;
     }
-
-    
-
 }
 
