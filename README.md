@@ -19,9 +19,10 @@ npm run setup:api
 From the root of the folder, 
 start them individually:
 
-npm run build
 npm run start:client
 npm run start:api
+
+npm run build - available in the root if npm run start:client webpack is not working
 ```
 
 ### Use the App!
