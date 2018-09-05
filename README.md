@@ -19,8 +19,9 @@ npm run setup:api
 From the root of the folder, 
 start them individually:
 
+npm run build
 npm run start:client
-npm run setup:api
+npm run start:api
 ```
 
 ### Use the App!

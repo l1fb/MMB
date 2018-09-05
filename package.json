@@ -7,7 +7,8 @@
     "setup:client": "cd client_side && npm install",
     "setup:api": "cd api_side && npm install",
     "start:client": "cd client_side && npm start",
-    "start:api": "cd api_side && npm start"
+    "start:api": "cd api_side && npm start",
+    "build": "cd client_side && npm run build"
   },
   "repository": {
     "type": "git",

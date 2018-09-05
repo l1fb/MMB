@@ -6,7 +6,8 @@
   "scripts": {
     "build:dev": "webpack -w --mode=development",
     "start:dev": "nodemon index.js",
-    "start": "node index.js"
+    "build": "webpack --mode=development",
+    "start": "webpack --mode=development && node index.js"
   },
   "author": "David Chung",
   "license": "ISC",
