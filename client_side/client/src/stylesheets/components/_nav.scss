@@ -16,7 +16,7 @@
     }
 }
 
-@media all and (min-width: 300px) {
+@media all and (min-width: 300px) and (max-width: 399px) {
     .nav-container {
         height: 9vh;
     }

@@ -61,7 +61,7 @@ $degree: 90deg;
         color: white;
     }
 }
-@media all and (min-width: 300px) {
+@media all and (min-width: 300px) and (max-width: 399px) {
     .feature-container {
         height: 15vh;
     }
@@ -71,7 +71,7 @@ $degree: 90deg;
 }
 
 
-@media all and (min-width: 400px) {
+@media all and (min-width: 400px) and (max-width: 699px) {
     .feature-name, .select-text, .result-text {
         font-size: 1.3rem;
     }
@@ -80,7 +80,7 @@ $degree: 90deg;
     }
 }
 
-@media all and (min-width: 700px) {
+@media all and (min-width: 700px) and (max-width: 899px) {
     .feature-name, .select-text, .result-text {
         font-size: 1.7rem;
     }
@@ -102,10 +102,8 @@ $degree: 90deg;
     .feature-name, .select-text, .result-text{
         font-size: 2rem;
     }
-}
-
-@media all and (min-width: 1400px) {
-    .feature-name, .select-text, .result-text{
-        font-size: 3rem;
+    .feature-container {
+        height: 27vh;
+        margin: 4rem 19rem;
     }
 }
