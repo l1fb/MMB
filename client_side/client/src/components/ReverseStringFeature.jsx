@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import DataDisplay from "./global/DataDisplay.jsx";
-
-import InputBox from "./global/InputBox.jsx";
-import SubmitBttn from "./global/buttons/SubmitBttn.jsx";
 
 class ReverseFeature extends Component {
     constructor(props) {
@@ -91,7 +87,7 @@ class ReverseFeature extends Component {
                         {/* do some conditional rendering for the output field */}
                     </div>
                     <div style={bstyle} className="back">
-                        <p> { reversedStr } </p>
+                        <p className="result-text"> { reversedStr } </p>
                         <button onClick={this.flip}>Redo</button>
                     </div>
                 </div>

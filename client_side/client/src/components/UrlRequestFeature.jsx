@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import InputBox from "./global/InputBox.jsx";
-import SubmitBttn from "./global/buttons/SubmitBttn.jsx";
-import { timingSafeEqual } from "crypto";
-
 class UrlRequestFeature extends Component {
     constructor(props) {
         super(props)
@@ -142,7 +138,7 @@ class UrlRequestFeature extends Component {
                         </div>
                     </div>
                     <div style={bstyle} className="back">
-                        <p>{urlData}</p>
+                        <p className="result-text">{urlData}</p>
                         <button onClick={this.flip}>Redo</button>
                     </div>
                 </div>

@@ -37,74 +37,6 @@ $degree: 90deg;
         transform: rotateY(180deg);
     }
 
-    // .front {
-    //     z-index: 1;
-    //     position: relative;
-    //     &.flip-to-back {
-    //         @keyframes back-flip-1 {
-    //             0% {
-    //                 transform: rotateY(0deg); z-index: 1
-    //             }
-    //             50% {
-    //                 transform: rotateY($degree) perspective($perspective); z-index: 1
-    //             }
-    //             100% {
-    //                 transform: rotateY($degree); z-index: -1
-    //             }
-    //         }
-    //         animation: back-flip-1 $duration 1 forwards;
-    //     }
-
-    //     &.flip-to-front {
-    //         animation: front-flip-1 $duration 1 forwards;
-    //         @keyframes front-flip-1 {
-    //             0% {
-    //                 transform: rotateY(-$degree); z-index: 1
-    //             }
-    //             50% {
-    //                 transform: rotateY(-$degree) perspective($perspective); z-index: -1
-    //             }
-    //             100% {
-    //                 transform: rotateY(0deg); z-index: 1
-    //             }
-    //         }
-    //     }
-    // }
-
-    // .back {
-    //     position: relative;
-    //     transform: rotateY(-$degree);
-    //     &.flip-to-back {
-    //         animation: back-flip-2 $duration 1 forwards;
-    //         @keyframes back-flip-2 {
-    //             0% {
-    //                 z-index: -1
-    //             }
-    //             50% {
-    //                 transform: rotateY(-$degree) perspective($perspective); z-index: -1
-    //             }
-    //             100% {
-    //                 transform: rotate(0deg); z-index: 1
-    //             }
-    //         }
-    //     }
-
-    //     &.flip-to-front {
-    //         animation: front-flip-2 $duration 1 forwards;
-    //         @keyframes front-flip-2 {
-    //             0% {
-    //                 transform: rotate(0deg); z-index: 1
-    //             }
-    //             50% {
-    //                 transform: rotateY($degree) perspective($perspective); z-index: 1
-    //             }
-    //             100% {
-    //                 transform: rotateY($degree); z-index: -1
-    //             }
-    //         }
-    //     }
-    // }
-
     .submit-method-container {
         display: flex;
         flex-direction: row;
@@ -129,3 +61,8 @@ $degree: 90deg;
     }
 }
 
+@media all and (min-width: 500px) {
+    .feature-name, .select-text, .result-text {
+        font-size: 2.3rem;
+    }
+}
