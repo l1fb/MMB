@@ -10,7 +10,7 @@ class ReverseFeature extends Component {
         super(props)
         this.state = {
             str: '',
-            reversedStr: 'Type the string',
+            reversedStr: 'No Input Found',
             clicked: false
         }
     }
@@ -25,20 +25,26 @@ class ReverseFeature extends Component {
         }
     }
     reverseRequest = () => {
-        axios.post('http://localhost:3000/api/reverse', {
-            data: this.state.str
-        })
-        .then(data => {
-
-            console.log('data thats coming back', data)
+        if(this.state.reversedStr !== 'no input found') {
+            axios.post('http://localhost:3000/api/reverse', {
+                data: this.state.str
+            })
+            .then(data => {
+                console.log('data thats coming back', data)
+                this.setState({
+                    reversedStr: data.data,
+                    clicked: true
+                })
+            })
+            .catch(err => {
+                throw err;
+            })
+        } else {
             this.setState({
-                reversedStr: data.data,
                 clicked: true
             })
-        })
-        .catch(err => {
-            throw err;
-        })
+        }
+        
     }
 
     flip = () => {
@@ -48,7 +54,7 @@ class ReverseFeature extends Component {
     }
 
     render() {
-        let { clicked } = this.state;
+        let { clicked , reversedStr } = this.state;
         let style, fstyle, bstyle;
         if (clicked) {
             style = {
@@ -85,7 +91,7 @@ class ReverseFeature extends Component {
                         {/* do some conditional rendering for the output field */}
                     </div>
                     <div style={bstyle} className="back">
-                        <p> {this.state.reversedStr} </p>
+                        <p> { reversedStr } </p>
                         <button onClick={this.flip}>Redo</button>
                     </div>
                 </div>

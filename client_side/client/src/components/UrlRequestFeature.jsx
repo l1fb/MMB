@@ -142,7 +142,7 @@ class UrlRequestFeature extends Component {
                         </div>
                     </div>
                     <div style={bstyle} className="back">
-                        <p>{this.state.urlData}</p>
+                        <p>{urlData}</p>
                         <button onClick={this.flip}>Redo</button>
                     </div>
                 </div>
