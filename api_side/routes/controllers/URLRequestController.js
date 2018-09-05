@@ -1,12 +1,13 @@
 const axios = require("axios");
 
-const HttpRequestController = {
+const URLRequestController = {
     getURL: ((req, res) => {
         //mvp+
         //dynamic query parameter search
         
         //mvp - get request to the given url
         let url = req.query.url;
+        console.log('server', req.query)
         axios.get(url)
             .then((result) => {
                 let load = JSON.stringify(result.data)
@@ -18,7 +19,6 @@ const HttpRequestController = {
     }),
     postURL: ((req, res) => {
         let reqBodyUrl = req.body.data.url;
-        // console.log(req.body)
         //mvp+
         //dynamic search parameter functionality
         let configObj = {};
@@ -44,4 +44,4 @@ const HttpRequestController = {
     })
 };
 
-module.exports = HttpRequestController;
+module.exports = URLRequestController;

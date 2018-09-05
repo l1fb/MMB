@@ -6,7 +6,7 @@ class UrlRequestFeature extends Component {
         super(props)
         this.state = {
             url: '',
-            urlData: 'Not a Valid Request',
+            urlData: 'Not a Valid Request or No Method Chosen',
             value: 'Select:',
             methodOptions: [
                 {
@@ -60,8 +60,9 @@ class UrlRequestFeature extends Component {
                 })
                 throw err;
             })
-        } else if (value === "GET" ) {
-            axios.get(`http://localhost:3000/api/?url=${this.state.url}`, {
+        } else if ( value === "GET" ) {
+            console.log('is url in the client?', this.state.url)
+            axios.get(`http://localhost:3000/api/url/?url=${this.state.url}`, {
             })
             .then(data => {
                 let result = JSON.stringify(data.data);
@@ -73,7 +74,7 @@ class UrlRequestFeature extends Component {
             .catch(err => {
                 this.setState({
                     urlData: 'Not A Valid Request',
-                    clicked:true
+                    clicked: true
                 })
                 throw err;
             })

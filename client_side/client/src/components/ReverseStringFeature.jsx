@@ -32,7 +32,7 @@ class ReverseFeature extends Component {
             })
         })
         .catch(err => {
-            throw err;
+            console.log(err);
         })
     }
 
