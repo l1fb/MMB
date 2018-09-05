@@ -6,7 +6,6 @@ const HttpRequestController = {
         //dynamic query parameter search
         
         //mvp - get request to the given url
-        console.log('req.body', req.body, 'req.query', req.query)
         let url = req.query.url;
         axios.get(url)
             .then((result) => {
@@ -40,7 +39,6 @@ const HttpRequestController = {
                 res.status(201).send(load);
             })
             .catch((err) => {
-                console.log('err', err)
                 res.status(404).send(err);
         })
     })

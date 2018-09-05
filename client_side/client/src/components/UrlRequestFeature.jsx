@@ -72,6 +72,7 @@ class UrlRequestFeature extends Component {
             })
             .catch(err => {
                 this.setState({
+                    urlData: 'Not A Valid Request',
                     clicked:true
                 })
                 throw err;
