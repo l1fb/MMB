@@ -11,7 +11,6 @@ class ReverseFeature extends Component {
         this.state = {
             str: '',
             reversedStr: '',
-            flipped: false,
             clicked: false
         }
     }
@@ -26,31 +25,45 @@ class ReverseFeature extends Component {
         }
     }
     reverseRequest = () => {
-        this.flipCard();
         axios.post('http://localhost:3000/api/reverse', {
             data: this.state.str
         })
         .then(data => {
+
             console.log('data thats coming back', data)
             this.setState({
-                reversedStr: data.data
+                reversedStr: data.data,
+                clicked: true
             })
         })
         .catch(err => {
             throw err;
         })
     }
-    flipCard = () => {
+
+    flip = () => {
+        console.log('is this hitting?')
         this.setState({
-            flipped: !this.state.flipped,
-            clicked: true
+            clicked: false
         })
     }
+
     render() {
+        let { clicked } = this.state;
+        let style;
+        if (clicked) {
+            style = {
+                transform: 'rotateY(180deg)'
+            }
+        } else {
+            style = {
+                transform: 'rotateY(0deg)'
+            }
+        }
         return(
             <div className="feature-container">
-                <div className="flip-container">
-                <div className={"reverse-feature-container feature-items front"}>    
+                <div style={style}className="flip-container">
+                <div className="reverse-feature-container feature-items front">    
                     <div className="feature-name">Type the string you want to reverse:</div>
                     <input
                         name="str"
@@ -60,10 +73,12 @@ class ReverseFeature extends Component {
                     <button onClick={this.reverseRequest}>Submit</button>
                     {/* do some conditional rendering for the output field */}
                 </div>
-                <div className={"back"}>
-                    <p> this is back! </p>
+                <div className="back">
+                    <p> {this.state.reversedStr} </p>
+                    <button onClick={this.flip}>Redo</button>
                 </div>
                 </div>
+                {'clicked state:' + this.state.clicked}
             </div>
         )
     }
