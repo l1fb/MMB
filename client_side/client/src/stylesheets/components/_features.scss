@@ -19,17 +19,17 @@ $degree: 90deg;
     //for 3d functionality
     perspective: 700;
     .flip-container {
-        transition: all 0.6s ease;
+        transition: all $duration ease;
         transform-style: preserve-3d;
         .front, .back {
             backface-visibility: hidden;
         }
     
         .back {
+            display: none;
             transform: rotateY(180deg);
         }
     }
-
     .flip-container:hover {
         transform: rotateY(180deg);
     }

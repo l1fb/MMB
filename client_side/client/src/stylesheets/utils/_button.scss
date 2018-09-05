@@ -5,6 +5,7 @@ button, select {
     border-radius: 10px;
     font-size: 1.2rem;
     padding: 8px;
+    margin: 20px;
     color: white;
     background:  linear-gradient(to top left,#74ba36, #a8e34d);
     @include boxshadow;

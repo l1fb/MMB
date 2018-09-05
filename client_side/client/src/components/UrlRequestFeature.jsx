@@ -89,26 +89,38 @@ class UrlRequestFeature extends Component {
 
     render() {
         const { url, urlData, value, methodOptions, clicked } = this.state;
-        let style;
+        let style, fstyle, bstyle;
         if (clicked) {
             style = {
                 transform: 'rotateY(180deg)'
             }
-        }else {
+            fstyle = {
+                display: 'none'
+            }
+            bstyle = {
+                display: 'flex'
+            }
+        } else {
             style = {
                 transform: 'rotateY(0deg)'
+            }
+            fstyle = {
+                display: 'flex'
+            }
+            bstyle = {
+                display: 'none'
             }
         }
         return(
             <div className="feature-container">
                 <div style={style} className="flip-container">
-                    <div className="url-request-feature-container feature-items front">
+                    <div style={fstyle} className="url-request-feature-container feature-items front">
                         <div className="feature-name">Type the url:</div>
                             <input
                                 name="url"
                                 onChange={this.changeHandler}
                             />
-                        <div>Select the request type: </div>
+                        <div className="select-text">Select the request type: </div>
                         
                         <div className="submit-method-container">
                             <div className="select-container">
@@ -123,7 +135,7 @@ class UrlRequestFeature extends Component {
                             <button onClick={this.urlRequest}>Submit</button>
                         </div>
                     </div>
-                    <div className="back">
+                    <div style={bstyle} className="back">
                         <p>{this.state.urlData}</p>
                         <button onClick={this.flip}>Redo</button>
                     </div>

@@ -49,20 +49,32 @@ class ReverseFeature extends Component {
 
     render() {
         let { clicked } = this.state;
-        let style;
+        let style, fstyle, bstyle;
         if (clicked) {
             style = {
-                transform: 'rotateY(180deg)'
+                transform: 'rotateY(180deg)',
+            }
+            fstyle = {
+                display: 'none'
+            }
+            bstyle = {
+                display: 'flex'
             }
         } else {
             style = {
-                transform: 'rotateY(0deg)'
+                transform: 'rotateY(0deg)',
+            }
+            fstyle = {
+                display: 'flex'
+            }
+            bstyle = {
+                display: 'none'
             }
         }
         return(
             <div className="feature-container">
                 <div style={style} className="flip-container">
-                    <div className="reverse-feature-container feature-items front">    
+                    <div style={fstyle} className="reverse-feature-container feature-items front">    
                         <div className="feature-name">Type the string you want to reverse:</div>
                         <input
                             name="str"
@@ -72,7 +84,7 @@ class ReverseFeature extends Component {
                         <button onClick={this.reverseRequest}>Submit</button>
                         {/* do some conditional rendering for the output field */}
                     </div>
-                    <div className="back">
+                    <div style={bstyle} className="back">
                         <p> {this.state.reversedStr} </p>
                         <button onClick={this.flip}>Redo</button>
                     </div>
