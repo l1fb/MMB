@@ -59,6 +59,9 @@ class UrlRequestFeature extends Component {
             })
             .catch(err => {
                 // err display for users
+                this.setState({
+                    clicked:true
+                })
                 throw err;
             })
         } else if (value === "GET" ) {
@@ -72,6 +75,9 @@ class UrlRequestFeature extends Component {
                 })
             })
             .catch(err => {
+                this.setState({
+                    clicked:true
+                })
                 throw err;
             })
         } else {
