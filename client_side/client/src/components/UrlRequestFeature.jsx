@@ -3,13 +3,14 @@ import axios from "axios";
 
 import InputBox from "./global/InputBox.jsx";
 import SubmitBttn from "./global/buttons/SubmitBttn.jsx";
+import { timingSafeEqual } from "crypto";
 
 class UrlRequestFeature extends Component {
     constructor(props) {
         super(props)
         this.state = {
             url: '',
-            urlData: '',
+            urlData: 'Not a Valid Request',
             value: 'Select:',
             methodOptions: [
                 {
@@ -24,7 +25,8 @@ class UrlRequestFeature extends Component {
                     name: 'POST',
                     value: 'POST'
                 }
-            ]
+            ],
+            clicked: false
         }
     }
 
@@ -51,53 +53,79 @@ class UrlRequestFeature extends Component {
             .then(data => {
                 let result = JSON.stringify(data.data);
                 this.setState({
-                    urlData: result
+                    urlData: result,
+                    clicked: true
                 })
             })
             .catch(err => {
                 // err display for users
                 throw err;
             })
-        } else {
+        } else if (value === "GET" ) {
             axios.get(`http://localhost:3000/api/?url=${this.state.url}`, {
             })
             .then(data => {
                 let result = JSON.stringify(data.data);
                 this.setState({
-                    urlData: result
+                    urlData: result,
+                    clicked: true
                 })
             })
             .catch(err => {
                 throw err;
             })
+        } else {
+            this.setState({
+                clicked: true
+            })
         }
     }
 
-    render() {
-        const { url, urlData, value, methodOptions } = this.state;
+    flip = () => {
+        this.setState({
+            clicked: false
+        })
+    }
 
+    render() {
+        const { url, urlData, value, methodOptions, clicked } = this.state;
+        let style;
+        if (clicked) {
+            style = {
+                transform: 'rotateY(180deg)'
+            }
+        }else {
+            style = {
+                transform: 'rotateY(0deg)'
+            }
+        }
         return(
             <div className="feature-container">
-                <div className="url-request-feature-container feature-items">
-                    <div className="feature-name">Type the url:</div>
-                        <input
-                            name="url"
-                            onChange={this.changeHandler}
-                        />
-
-                    <div>Select the request type: </div>
-                    
-                    <div className="submit-method-container">
-                        <div className="select-container">
-                            <select onChange={this.selectChangeHandler} value={value}>
-                                {methodOptions.map(optionEntry => (
-                                    <option key={optionEntry.value} value={optionEntry.value}>
-                                        {optionEntry.name}
-                                    </option>
-                                ))}
-                            </select>
+                <div style={style} className="flip-container">
+                    <div className="url-request-feature-container feature-items front">
+                        <div className="feature-name">Type the url:</div>
+                            <input
+                                name="url"
+                                onChange={this.changeHandler}
+                            />
+                        <div>Select the request type: </div>
+                        
+                        <div className="submit-method-container">
+                            <div className="select-container">
+                                <select onChange={this.selectChangeHandler} value={value}>
+                                    {methodOptions.map(optionEntry => (
+                                        <option key={optionEntry.value} value={optionEntry.value}>
+                                            {optionEntry.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <button onClick={this.urlRequest}>Submit</button>
                         </div>
-                        <button onClick={this.urlRequest}>Submit</button>
+                    </div>
+                    <div className="back">
+                        <p>{this.state.urlData}</p>
+                        <button onClick={this.flip}>Redo</button>
                     </div>
                 </div>
             </div>
