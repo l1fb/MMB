@@ -1,7 +1,6 @@
 const reverseCommands = {
     reverseStr: ((req, res) => {
         const originStr = req.body.data;
-        console.log(originStr)
         let reversedStr = "";
 
         //O(n) time complexity

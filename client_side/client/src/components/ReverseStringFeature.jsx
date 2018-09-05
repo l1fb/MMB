@@ -21,26 +21,20 @@ class ReverseFeature extends Component {
         }
     }
     reverseRequest = () => {
-        if(this.state.reversedStr !== 'no input found') {
-            axios.post('http://localhost:3000/api/reverse', {
-                data: this.state.str
-            })
-            .then(data => {
-                console.log('data thats coming back', data)
-                this.setState({
-                    reversedStr: data.data,
-                    clicked: true
-                })
-            })
-            .catch(err => {
-                throw err;
-            })
-        } else {
+        axios.post('http://localhost:3000/api/reverse', {
+            data: this.state.str
+        })
+        .then(data => {
+            console.log('data boolean', data.data, !!data.data)
+            let str = data.data ? data.data : 'No Input Found';
             this.setState({
+                reversedStr: str,
                 clicked: true
             })
-        }
-        
+        })
+        .catch(err => {
+            throw err;
+        })
     }
 
     flip = () => {
