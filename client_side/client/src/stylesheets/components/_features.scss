@@ -1,6 +1,6 @@
 @import "../abstracts/_mixin.scss";
 
-$duration: 5s;
+$duration: 1s;
 $perspective: 10rem;
 $degree: 90deg;
 
@@ -28,6 +28,9 @@ $degree: 90deg;
         .back {
             display: none;
             transform: rotateY(180deg);
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
         }
     }
     .flip-container:hover {
