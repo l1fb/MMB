@@ -9,9 +9,15 @@
     display: flex;
     align-items: center;
     justify-content: left;
-    
+
     img {
         background: #FFFFFF;
         width: 35%;
+    }
+}
+
+@media all and (min-width: 500px) {
+    .nav-container img {
+        width: 200px;
     }
 }

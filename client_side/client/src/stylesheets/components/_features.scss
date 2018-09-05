@@ -1,6 +1,6 @@
 @import "../abstracts/_mixin.scss";
 
-$duration: 1s;
+$duration: 1.5s;
 $perspective: 10rem;
 $degree: 90deg;
 
@@ -18,6 +18,7 @@ $degree: 90deg;
     @include boxshadow;
     //for 3d functionality
     perspective: 700;
+
     .flip-container {
         transition: all $duration ease;
         transform-style: preserve-3d;
@@ -64,5 +65,27 @@ $degree: 90deg;
 @media all and (min-width: 500px) {
     .feature-name, .select-text, .result-text {
         font-size: 2.3rem;
+    }
+    .feature-container {
+        margin: 4rem 6rem;
+    }
+}
+
+@media all and (min-width: 700px) {
+    .feature-name, .select-text, .result-text {
+        font-size: 1.7rem;
+    }
+    .feature-container {
+        height: 35vh;
+    }
+}
+
+@media all and (min-width: 900px) {
+    .feature-name, .select-text, .result-tex{
+        font-size: 2rem;
+    }
+    .feature-container {
+        height: 35vh;
+        margin: 4rem 10rem;
     }
 }

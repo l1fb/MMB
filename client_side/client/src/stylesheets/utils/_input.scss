@@ -17,3 +17,9 @@ input:focus {
         font-size: 3rem;
     }
 }
+
+@media all and (min-width: 900px) {
+    input {
+        font-size: 2rem;
+    }
+}
