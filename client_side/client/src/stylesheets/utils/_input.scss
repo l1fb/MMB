@@ -1,11 +1,12 @@
 input {
     background-color: coral;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     border: none;
     border-bottom: 2px solid white;
-    
+    margin-top: 0.5rem;
 }
 
 input:focus {
-outline: none;
+    outline: none;
+    background: #caa395;
 }
