@@ -13,7 +13,7 @@ const HttpRequestController = {
                 res.status(200).send(load);
             })
             .catch((err) => {
-                res.status(404).send(err);
+                res.status(404).send();
             })
     }),
     postURL: ((req, res) => {
@@ -39,7 +39,7 @@ const HttpRequestController = {
                 res.status(201).send(load);
             })
             .catch((err) => {
-                res.status(404).send(err);
+                res.status(404).send();
         })
     })
 };
