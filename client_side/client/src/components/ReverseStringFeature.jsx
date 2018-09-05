@@ -25,7 +25,6 @@ class ReverseFeature extends Component {
             data: this.state.str
         })
         .then(data => {
-            console.log('data boolean', data.data, !!data.data)
             let str = data.data ? data.data : 'No Input Found';
             this.setState({
                 reversedStr: str,
