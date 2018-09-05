@@ -13,8 +13,8 @@ class UrlRequestFeature extends Component {
             value: 'Select:',
             methodOptions: [
                 {
-                    name: 'Select:',
-                    value: 'Select:'
+                    name: 'Select',
+                    value: 'Select'
                 },
                 {
                     name: 'GET',

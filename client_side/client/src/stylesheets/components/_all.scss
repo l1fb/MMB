@@ -1,9 +1,12 @@
-//main components folder
+//importing for main components folder
 @import "app";
 @import "features";
 @import "nav";
 
-//utils folder
+//importing for global components folder
+@import "displaydata";
+
+//importing for utils folder
 @import "../utils/button";
 @import "../utils/placeholders";
 @import "../utils/select";

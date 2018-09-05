@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import DataDisplay from "./global/DataDisplay.jsx";
 
 import InputBox from "./global/InputBox.jsx";
 import SubmitBttn from "./global/buttons/SubmitBttn.jsx";
@@ -9,7 +10,9 @@ class ReverseFeature extends Component {
         super(props)
         this.state = {
             str: '',
-            reversedstr: ''
+            reversedStr: '',
+            flipped: false,
+            clicked: false
         }
     }
     changeHandler = (e) => {
@@ -23,6 +26,7 @@ class ReverseFeature extends Component {
         }
     }
     reverseRequest = () => {
+        this.flipCard();
         axios.post('http://localhost:3000/api/reverse', {
             data: this.state.str
         })
@@ -36,10 +40,17 @@ class ReverseFeature extends Component {
             throw err;
         })
     }
+    flipCard = () => {
+        this.setState({
+            flipped: !this.state.flipped,
+            clicked: true
+        })
+    }
     render() {
         return(
             <div className="feature-container">
-                <div className="reverse-feature-container feature-items">    
+                <div className="flip-container">
+                <div className={"reverse-feature-container feature-items front"}>    
                     <div className="feature-name">Type the string you want to reverse:</div>
                     <input
                         name="str"
@@ -48,6 +59,10 @@ class ReverseFeature extends Component {
                     />
                     <button onClick={this.reverseRequest}>Submit</button>
                     {/* do some conditional rendering for the output field */}
+                </div>
+                <div className={"back"}>
+                    <p> this is back! </p>
+                </div>
                 </div>
             </div>
         )
