@@ -1,4 +1,4 @@
-# MyMedicalBot - Conding Challenge
+# MyMedicalBot - Coding Challenge
 
 Features - Reverse String & GET/POST request to an URL.
 
